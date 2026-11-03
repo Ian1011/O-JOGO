@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Skill_Passive" format=3 uid="uid://dhr8feudkvw64"]
+
+[ext_resource type="Script" uid="uid://ci3munfr6qc8x" path="res://scripts/skills/skill-passive.gd" id="1_3ipr5"]
+[ext_resource type="Texture2D" uid="uid://b883cjyjsaehc" path="res://sprites/test_skills/icons_skills/heart.png" id="2_xvrfr"]
+[ext_resource type="Script" uid="uid://crsb7qylf4k1w" path="res://scripts/Stats.gd" id="3_li745"]
+
+[sub_resource type="Resource" id="Resource_87e8h"]
+script = ExtResource("3_li745")
+description = "+20 Max_health"
+max_health = 20.0
+
+[sub_resource type="Resource" id="Resource_2kdoh"]
+script = ExtResource("3_li745")
+description = "+30 Max_health"
+max_health = 30.0
+
+[sub_resource type="Resource" id="Resource_k1wmi"]
+script = ExtResource("3_li745")
+description = "+30 Max_health"
+max_health = 30.0
+
+[resource]
+script = ExtResource("1_3ipr5")
+upgrades = Array[ExtResource("3_li745")]([SubResource("Resource_87e8h"), SubResource("Resource_2kdoh"), SubResource("Resource_k1wmi")])
+title = "Heart"
+texture = ExtResource("2_xvrfr")

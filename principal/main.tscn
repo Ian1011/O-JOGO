@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg7grc6gi0ubu"]
+
+[ext_resource type="PackedScene" uid="uid://bccbgc0xm5lmf" path="res://scenes/player/player.tscn" id="1_0dok8"]
+[ext_resource type="Script" uid="uid://csywtfsip8717" path="res://principal/scripts/main.gd" id="1_comuv"]
+[ext_resource type="Script" uid="uid://bf7uta58x0bkk" path="res://principal/scripts/enemies.gd" id="2_8aajw"]
+
+[node name="Main_node" type="Node2D"]
+script = ExtResource("1_comuv")
+
+[node name="Enemies" type="Node2D" parent="."]
+script = ExtResource("2_8aajw")
+
+[node name="Player" parent="." instance=ExtResource("1_0dok8")]
+movement_speed = 200.0

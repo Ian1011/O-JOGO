@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://yf84c6imfgk7"]
+
+[ext_resource type="Script" uid="uid://flcpsv8syxcg" path="res://scripts/skills/sword_slash.gd" id="1_wyw1l"]
+[ext_resource type="Texture2D" uid="uid://de3oq65jg25h1" path="res://sprites/test_skills/Sword_test.png" id="2_3g7yu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i446o"]
+radius = 20.0
+height = 88.0
+
+[sub_resource type="Animation" id="Animation_2mw6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(63, 2, 38, 34)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -19)]
+}
+
+[sub_resource type="Animation" id="Animation_cgp5t"]
+resource_name = "attack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(63, 2, 38, 34), Rect2(3, 2, 38, 62)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-2, -19), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_klv5o"]
+_data = {
+&"RESET": SubResource("Animation_2mw6l"),
+&"attack": SubResource("Animation_cgp5t")
+}
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_wyw1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -1)
+shape = SubResource("CapsuleShape2D_i446o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -19)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_3g7yu")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(63, 2, 38, 34)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_klv5o")
+}
+autoplay = "attack"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" format=3 uid="uid://d1ar1ci31ew8e"]
+
+[ext_resource type="PackedScene" uid="uid://yf84c6imfgk7" path="res://scenes/skills/sword_slash.tscn" id="1_nytq4"]
+[ext_resource type="Script" uid="uid://7mpf27fpk0f6" path="res://scripts/skills/sword.gd" id="2_66e0o"]
+[ext_resource type="Texture2D" uid="uid://b6ewtaacb733h" path="res://sprites/test_skills/icons_skills/sword_icon.png" id="3_tth7x"]
+[ext_resource type="Script" uid="uid://brrfn3ijpxqyc" path="res://scripts/skills/upgrade-damage.gd" id="4_6hiy1"]
+
+[sub_resource type="Resource" id="Resource_00cah"]
+script = ExtResource("4_6hiy1")
+description = "The sword make slash"
+
+[sub_resource type="Resource" id="Resource_amq21"]
+script = ExtResource("4_6hiy1")
+cooldown = -0.5
+description = "-0.5s Cooldown"
+
+[sub_resource type="Resource" id="Resource_auirb"]
+script = ExtResource("4_6hiy1")
+speed = 10.0
+description = "+10 Speed"
+
+[sub_resource type="Resource" id="Resource_ukuvk"]
+script = ExtResource("4_6hiy1")
+damage = 10.0
+description = "+10 Damage"
+
+[resource]
+script = ExtResource("2_66e0o")
+damage = 10.0
+cooldown = 2.0
+num_projectiles = 1
+speed = 5.0
+upgrades = Array[ExtResource("4_6hiy1")]([SubResource("Resource_00cah"), SubResource("Resource_amq21"), SubResource("Resource_auirb"), SubResource("Resource_ukuvk")])
+title = "Sword"
+texture = ExtResource("3_tth7x")

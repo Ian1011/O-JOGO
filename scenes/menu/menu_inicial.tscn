@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://utlo2ok0ppmw"]
+
+[ext_resource type="Script" uid="uid://cv078bee0fnsp" path="res://menu/script-menu/menu_inicial.gd" id="1_heysn"]
+[ext_resource type="FontFile" uid="uid://bu32dpi76yhwu" path="res://menu/fontes/texto_menu/BrassHopperBodyBlack_PERSONAL_USE_ONLY.otf" id="2_e27od"]
+[ext_resource type="AudioStream" uid="uid://dlgggfbifjeir" path="res://menu/efeitos sonoros/Botão/hiphop 1.wav" id="3_uouww"]
+[ext_resource type="AudioStream" uid="uid://citopycuj40gk" path="res://menu/efeitos sonoros/musica_fundo/musica_menu.mp3" id="4_omh0b"]
+
+[node name="menu_inicial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_heysn")
+
+[node name="fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0, 0.0823529, 1)
+
+[node name="nome_jogo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.417
+anchor_right = 0.5
+anchor_bottom = 0.417
+offset_left = -22.0
+offset_top = -40.216
+offset_right = 25.0
+offset_bottom = -17.216
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_e27od")
+theme_override_font_sizes/font_size = 60
+text = "O JOGO"
+horizontal_alignment = 1
+
+[node name="box_botões" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -39.0
+offset_right = 88.5
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="but jogar" type="Button" parent="box_botões" groups=["button"]]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_e27od")
+theme_override_font_sizes/font_size = 45
+text = "Jogar"
+
+[node name="but classe" type="Button" parent="box_botões" groups=["button"]]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_e27od")
+theme_override_font_sizes/font_size = 45
+text = "Classe"
+
+[node name="but opções" type="Button" parent="box_botões" groups=["button"]]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_e27od")
+theme_override_font_sizes/font_size = 45
+text = "Opções"
+
+[node name="but conquista" type="Button" parent="box_botões" groups=["button"]]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_e27od")
+theme_override_font_sizes/font_size = 45
+text = "Conquista"
+
+[node name="but sair" type="Button" parent="box_botões" groups=["button"]]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_e27od")
+theme_override_font_sizes/font_size = 45
+text = "Sair"
+
+[node name="som botao" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uouww")
+
+[node name="musica_fundo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_omh0b")
+volume_db = -15.321
+autoplay = true
+parameters/looping = true

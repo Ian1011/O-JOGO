@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://d30b3mpl54m6f"]
+
+[ext_resource type="PackedScene" uid="uid://bccbgc0xm5lmf" path="res://scenes/player/player.tscn" id="1_gotqr"]
+[ext_resource type="PackedScene" uid="uid://c3vq6ngwx52mb" path="res://scenes/pickups/pickups.tscn" id="2_8afid"]
+[ext_resource type="Resource" uid="uid://bp4bjem8ubcug" path="res://resources/pickups/blue_gem.tres" id="3_8bwi3"]
+[ext_resource type="PackedScene" uid="uid://c307l25opfbb5" path="res://scenes/enemies/imp.tscn" id="4_ljlb7"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_gotqr")]
+
+[node name="Pickups" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_8afid")]
+position = Vector2(-184, 91)
+type = ExtResource("3_8bwi3")
+player = NodePath("../Player")
+
+[node name="Pickups2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_8afid")]
+position = Vector2(-205, 125)
+type = ExtResource("3_8bwi3")
+player = NodePath("../Player")
+
+[node name="Pickups3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_8afid")]
+position = Vector2(-223, 53)
+type = ExtResource("3_8bwi3")
+player = NodePath("../Player")
+
+[node name="Pickups4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_8afid")]
+position = Vector2(-159, 56)
+type = ExtResource("3_8bwi3")
+player = NodePath("../Player")
+
+[node name="Pickups5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_8afid")]
+position = Vector2(-91, 122)
+type = ExtResource("3_8bwi3")
+player = NodePath("../Player")
+
+[node name="Imp" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ljlb7")]
+position = Vector2(209, 139)
+player = NodePath("../Player")

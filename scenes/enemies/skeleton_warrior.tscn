@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0n25nec0isc2"]
+
+[ext_resource type="Script" uid="uid://bllsmwys8x2gc" path="res://scripts/enemies/skeleton_warrior.gd" id="1_ypm0g"]
+[ext_resource type="Script" uid="uid://da7hucns5axt8" path="res://scripts/pickups/pickups_resources.gd" id="2_4ep68"]
+[ext_resource type="Texture2D" uid="uid://y2nsmpepu3b3" path="res://sprites/enemies/Walk.png" id="2_w1o4f"]
+[ext_resource type="Resource" uid="uid://bp4bjem8ubcug" path="res://resources/pickups/blue_gem.tres" id="3_i2aq6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3opq"]
+radius = 12.0416
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i164p"]
+size = Vector2(25, 63)
+
+[node name="skeleton_warrior" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(-1, -1)
+script = ExtResource("1_ypm0g")
+drops = Array[ExtResource("2_4ep68")]([ExtResource("3_i2aq6")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, -21)
+texture = ExtResource("2_w1o4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g3opq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_i164p")
+debug_color = Color(0.931507, 0.256698, 0.129648, 0.42)

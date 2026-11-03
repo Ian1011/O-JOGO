@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://c307l25opfbb5"]
+
+[ext_resource type="Script" uid="uid://fcy5vvohlgdu" path="res://scripts/enemies/imp.gd" id="1_ry4xn"]
+[ext_resource type="Texture2D" uid="uid://b6tac6ybnyyne" path="res://sprites/enemies/imp.png" id="1_w1j8g"]
+[ext_resource type="Script" uid="uid://da7hucns5axt8" path="res://scripts/pickups/pickups_resources.gd" id="2_misxk"]
+[ext_resource type="Resource" uid="uid://bp4bjem8ubcug" path="res://resources/pickups/blue_gem.tres" id="3_viesf"]
+[ext_resource type="Resource" uid="uid://bwmuejwboox2b" path="res://resources/pickups/red_gem.tres" id="4_4hn6x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5oxkl"]
+radius = 9.05539
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y67bi"]
+size = Vector2(27, 40)
+
+[sub_resource type="Animation" id="Animation_6vcwu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(5, 138, 33, 41)]
+}
+
+[sub_resource type="Animation" id="Animation_s4smf"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(5, 138, 33, 41), Rect2(72, 139, 27, 40), Rect2(133, 138, 33, 41), Rect2(193, 139, 42, 40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w4mvi"]
+_data = {
+&"RESET": SubResource("Animation_6vcwu"),
+&"walk": SubResource("Animation_s4smf")
+}
+
+[node name="Imp" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ry4xn")
+drops = Array[ExtResource("2_misxk")]([ExtResource("3_viesf"), ExtResource("4_4hn6x")])
+damage = 10.0
+health = 20.0
+speed = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("1_w1j8g")
+region_enabled = true
+region_rect = Rect2(5, 138, 33, 41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5oxkl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_y67bi")
+debug_color = Color(0.983928, 0.12305, 0.0349289, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w4mvi")
+}
+autoplay = "walk"

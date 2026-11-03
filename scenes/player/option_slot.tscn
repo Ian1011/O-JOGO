@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://df3y8vmwr3qbh"]
+
+[ext_resource type="Script" uid="uid://da427qp0e6ay2" path="res://scripts/option_slot.gd" id="1_ifwd7"]
+[ext_resource type="Texture2D" uid="uid://dwi3i8y3iu7ti" path="res://sprites/test_skills/scroll_texture.jpeg" id="2_eb52w"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ejd5w"]
+
+[node name="Option_Slot" type="TextureButton"]
+custom_minimum_size = Vector2(315, 40)
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 316.0
+offset_bottom = 41.0
+texture_normal = SubResource("PlaceholderTexture2D_ejd5w")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("1_ifwd7")
+
+[node name="LV" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 31.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Lv 99"
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = -1.0
+offset_right = 223.0
+offset_bottom = 40.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "test description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(315, 42)
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 314.0
+offset_bottom = 41.0
+texture = ExtResource("2_eb52w")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

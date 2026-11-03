@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkvlgbkh01nh8"]
+
+[ext_resource type="Script" uid="uid://ble2e1t8vxsoa" path="res://principal/scripts/db_node.gd" id="1_bc0ij"]
+
+[node name="DbNode" type="Node"]
+script = ExtResource("1_bc0ij")

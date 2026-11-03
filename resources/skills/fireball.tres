@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Fireball" format=3 uid="uid://byw2jx78lo1e3"]
+
+[ext_resource type="PackedScene" uid="uid://birubtkyk3rtc" path="res://scenes/skills/fireball.tscn" id="1_vdj0k"]
+[ext_resource type="Script" uid="uid://ffevmkoq2x1n" path="res://scripts/skills/fireball.gd" id="2_qtd2q"]
+[ext_resource type="Script" uid="uid://brrfn3ijpxqyc" path="res://scripts/skills/upgrade-damage.gd" id="3_mluu8"]
+[ext_resource type="Texture2D" uid="uid://bj85x6un2yqrc" path="res://sprites/test_skills/icons_skills/fireball_icon.png" id="3_r3w31"]
+
+[sub_resource type="Resource" id="Resource_oniha"]
+script = ExtResource("3_mluu8")
+description = "FIREBALLLLLLLLLLLLLL"
+
+[sub_resource type="Resource" id="Resource_2d855"]
+script = ExtResource("3_mluu8")
+cooldown = -0.2
+description = "-0.2s cooldown"
+
+[sub_resource type="Resource" id="Resource_tea4y"]
+script = ExtResource("3_mluu8")
+speed = 300.0
+description = "+300 speed"
+
+[sub_resource type="Resource" id="Resource_ogy74"]
+script = ExtResource("3_mluu8")
+damage = 10.0
+description = "+10 Damage"
+
+[resource]
+script = ExtResource("2_qtd2q")
+projectile_scene = ExtResource("1_vdj0k")
+damage = 10.0
+cooldown = 1.0
+speed = 200.0
+upgrades = Array[ExtResource("3_mluu8")]([SubResource("Resource_oniha"), SubResource("Resource_2d855"), SubResource("Resource_tea4y"), SubResource("Resource_ogy74")])
+title = "Fireball"
+texture = ExtResource("3_r3w31")

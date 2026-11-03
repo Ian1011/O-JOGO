@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://bp4bjem8ubcug"]
+
+[ext_resource type="Texture2D" uid="uid://cf87l0xn1rttl" path="res://sprites/xp_gem.png" id="1_a4w0j"]
+[ext_resource type="Script" uid="uid://d4ehfnod7ij5w" path="res://scripts/pickups/gem.gd" id="2_rpor6"]
+
+[resource]
+script = ExtResource("2_rpor6")
+XP = 1.0
+title = "Blue Gem"
+icon = ExtResource("1_a4w0j")
+description = "Gains 1 XP point, おめでとう、ネクロン・ブクサ."
